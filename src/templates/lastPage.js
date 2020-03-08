@@ -12,6 +12,8 @@ const LastPage = () => {
       </h1>
       <br />
       <br />
+      <h2>Sretan dan zena, a nama sretnih ostalih 364/365</h2>
+
       <br />
       <h3>A sad idemo jednu prije rucka</h3>
       <img
