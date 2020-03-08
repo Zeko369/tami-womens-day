@@ -118,8 +118,7 @@ exports.data = [
     ],
   },
   {
-    title:
-      "Ono kad je ovo bilo bolje od ove godine 🙈🙈🙈 (znam decko ti je glup)",
+    title: "🙈🙈🙈 Znam da ne volis ove slike",
     urls: [
       {
         url:
@@ -284,7 +283,7 @@ exports.data = [
     ],
   },
   {
-    title: "A da se ovako cesce oblacis 🙈",
+    title: "Prvi smo 🥳",
     urls: [
       {
         url:
@@ -483,7 +482,7 @@ exports.data = [
   },
   {
     title:
-      "SHIT NE, slike su mi se pomjesale, ovo je majmun 🙈😘 (nemoj se ljutiti to je bila sala), (a shit ljutis se), (a daj bila je smijesna), (nemoj)",
+      "SHIT NE\nslike su mi se pomjesale, ovo je majmun 🙈😘\n(nemoj se ljutiti to je bila sala), (a shit ljutis se), (a daj bila je smijesna), (nemoj)",
     urls: [
       {
         url:

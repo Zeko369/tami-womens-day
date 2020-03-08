@@ -9,16 +9,33 @@
 const path = require("path")
 const { data } = require("./src/data")
 
+const slug = id => `/image-${id}`
+
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
   const template = path.resolve(`./src/templates/main.js`)
 
   data.forEach((page, index) => {
+    const before = index !== 0 ? slug(index - 1) : undefined
+    const after = slug(index + 1)
+
+    console.log(index, page)
+
     createPage({
-      path: `/page-${index}`,
+      path: slug(index),
       component: template,
-      context: { ...page, id: index, count: data.length },
+      context: {
+        page,
+        before,
+        after,
+        progress: Math.ceil((index / data.length) * 100),
+      },
     })
+  })
+
+  createPage({
+    path: slug(data.length),
+    component: path.resolve(`./src/templates/lastPage.js`),
   })
 }

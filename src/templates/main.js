@@ -4,13 +4,15 @@ import Layout from "../components/layout"
 import Item from "../components/Item"
 
 const Main = ({ data }) => {
-  const page = data.allSitePage.edges[0].node.context
-
-  const before = page.id !== 0 ? `page-${page.id - 1}` : undefined
-  const after = page.id !== page.count ? `page-${page.id + 1}` : undefined
+  const {
+    page,
+    before,
+    after,
+    progress,
+  } = data.allSitePage.edges[0].node.context
 
   return (
-    <Layout before={before} after={after}>
+    <Layout before={before} after={after} progress={progress}>
       <Item page={page} />
     </Layout>
   )
@@ -22,13 +24,17 @@ export const query = graphql`
       edges {
         node {
           context {
-            count
-            id
-            title
-            urls {
-              url
-              rotate
+            progress
+            page {
+              title
+              link
+              urls {
+                url
+                rotate
+              }
             }
+            before
+            after
           }
         }
       }

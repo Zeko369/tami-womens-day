@@ -7,25 +7,41 @@
 
 import React from "react"
 import PropTypes from "prop-types"
-import { useStaticQuery, graphql, Link } from "gatsby"
+import styled, { createGlobalStyle } from "styled-components"
 
-import Header from "./header"
+import Progress from "./Progress"
 import "./layout.css"
+import Button from "./Button"
 
-const Layout = ({ children, before, after }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
+const GlobalStyles = createGlobalStyle`
+  * { font-family: 'Nunito'; }
+`
+
+const Footer = styled.footer`
+  display: flex;
+  justify-content: space-between;
+`
+
+const Main = styled.main`
+  padding-top: 20px;
+`
+
+const Layout = ({ children, before, after, progress }) => {
+  // const data = useStaticQuery(graphql`
+  //   query SiteTitleQuery {
+  //     site {
+  //       siteMetadata {
+  //         title
+  //       }
+  //     }
+  //   }
+  // `)
 
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata.title} />
+      <GlobalStyles />
+      {/* <Header siteTitle={data.site.siteMetadata.title} /> */}
+      {progress && <Progress progress={progress} />}
       <div
         style={{
           margin: `0 auto`,
@@ -33,11 +49,11 @@ const Layout = ({ children, before, after }) => {
           padding: `0 1.0875rem 1.45rem`,
         }}
       >
-        <main>{children}</main>
-        <footer>
-          {before && <Link to={before}>Back</Link>}
-          {after && <Link to={after}>Next</Link>}
-        </footer>
+        <Main>{children}</Main>
+        <Footer>
+          {before ? <Button to={before}>Back</Button> : <div></div>}
+          {after ? <Button to={after}>Next</Button> : <div></div>}
+        </Footer>
         {/* <footer>
           © {new Date().getFullYear()}, Built with
           {` `}

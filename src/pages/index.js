@@ -1,16 +1,12 @@
 import React from "react"
-// import { Link } from "gatsby"
 
 import Layout from "../components/layout"
-import { data } from "../data"
-
-import Item from "../components/Item"
+import Button from "../components/Button"
 
 const IndexPage = () => (
   <Layout>
-    {data.map(item => (
-      <Item page={item} />
-    ))}
+    <h1>Startan dan zena, ili sta god da je danas</h1>
+    <Button to="/image-0">Begin</Button>
   </Layout>
 )
 
