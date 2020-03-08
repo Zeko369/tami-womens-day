@@ -24,6 +24,11 @@ const Footer = styled.footer`
 
 const Main = styled.main`
   padding-top: 20px;
+  max-width: 100vw;
+`
+
+const Container = styled.div`
+  min-height: 100vh;
 `
 
 const Layout = ({ children, before, after, progress }) => {
@@ -38,10 +43,10 @@ const Layout = ({ children, before, after, progress }) => {
   // `)
 
   return (
-    <>
+    <Container>
       <GlobalStyles />
       {/* <Header siteTitle={data.site.siteMetadata.title} /> */}
-      {progress && <Progress progress={progress} />}
+      {progress !== undefined && <Progress progress={progress} />}
       <div
         style={{
           margin: `0 auto`,
@@ -60,7 +65,7 @@ const Layout = ({ children, before, after, progress }) => {
           <a href="https://www.gatsbyjs.org">Gatsby</a>
         </footer> */}
       </div>
-    </>
+    </Container>
   )
 }
 

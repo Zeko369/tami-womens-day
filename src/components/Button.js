@@ -9,6 +9,8 @@ const Button = styled(Link)`
   background-color: rebeccapurple;
   border-radius: 4px;
   padding: 12px 32px;
+
+  cursor: pointer;
 `
 
 export default Button
