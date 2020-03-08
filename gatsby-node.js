@@ -20,8 +20,6 @@ exports.createPages = async ({ graphql, actions }) => {
     const before = index !== 0 ? slug(index - 1) : undefined
     const after = slug(index + 1)
 
-    console.log(index, page)
-
     createPage({
       path: slug(index),
       component: template,
